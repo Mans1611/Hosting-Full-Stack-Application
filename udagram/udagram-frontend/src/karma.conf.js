@@ -1,7 +1,14 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+const { env } = require('process');
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 module.exports = function (config) {
+  
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -12,6 +19,8 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
+    
+    
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
@@ -26,6 +35,20 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+    env:{
+      POSTGRES_USERNAME:process.env.POSTGRES_PASSWORD,
+      POSTGRES_DB:process.env.POSTGRES_DB,
+      PORT:process.env.PORT,
+      POSTGRES_HOST:process.env.POSTGRES_HOST,
+      AWS_REGION:process.env.AWS_REGION,
+      AWS_BUCKET:process.env.AWS_BUCKET,
+      URL:process.env.URL,
+      JWT_SECRET:process.env.JWT_SECRET
+      }
+  
+  
+  
+  
   });
 };

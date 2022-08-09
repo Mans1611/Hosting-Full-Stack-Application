@@ -6,6 +6,12 @@ import { environment } from '../../environments/environment';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+
 export class HomePage {
   appName = environment.appName;
+  apiURL = environment.apiHost;
+
 }
+
+console.log(environment.apiHost);
