@@ -45,7 +45,7 @@ const model_index_1 = require("./controllers/v0/model.index");
     yield sequelize_1.sequelize.sync();
     console.log("Database Connected");
     const app = express_1.default();
-    const port = process.env.PORT || 8080;
+    const port = process.env.PORT || 3000;
     console.log(port);
     app.use(body_parser_1.default.json());
     // app.use(cors());

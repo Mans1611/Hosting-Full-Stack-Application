@@ -6,7 +6,7 @@ import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 export const environment = {
   production: true,
   appName: "Udagram",
-  apiHost: "http://localhost:5000/api/v0",
+  apiHost: "http://udagram-api-dev.eba-wepmqniy.us-east-1.elasticbeanstalk.com/api/v0",
 };
 const env = require('dotenv')
 /*

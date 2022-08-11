@@ -10,7 +10,7 @@ console.log(process.env.PORT);
 export const environment = {
   production: false,
   appName: 'Udagram',
-  apiHost: 'http://localhost:5000/api/v0'
+  apiHost: 'http://udagram-api-dev.eba-wepmqniy.us-east-1.elasticbeanstalk.com/api/v0/'
 };
 
 import 'zone.js/dist/zone-error';  // Included with Angular CLI.
