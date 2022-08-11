@@ -67,6 +67,11 @@ workflows:
           type: approval
           requires:
             - build
+<<<<<<< HEAD
+=======
+          
+>>>>>>> 06dd10f45110ded387ffeb9dedc26e9eb7f315e8
       - deploy:
+          
           requires:
             - hold
