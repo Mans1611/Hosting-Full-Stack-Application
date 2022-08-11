@@ -13,7 +13,7 @@
     "prod": "npx tsc && node ./dist/server.js",
     "clean": "rmdir /s /q dist || true",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
-    "build": "tsc  && cp .npmrc dist/.npmrc && cp package.json dist/package.json && cp -r .elasticbeanstalk dist/.elasticbeanstalk && cd dist && bestzip Archive.zip . && cd .. ",
+    "build": "tsc  && cp .npmrc dist/.npmrc && cp package.json dist/package.json && cd dist && bestzip Archive.zip . && cd .. ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "restart": "nodemon src/server.ts"
   },
