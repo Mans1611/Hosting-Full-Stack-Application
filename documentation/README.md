@@ -10,44 +10,33 @@ Elastic Beanstalk : Hoisting Api
 RDS : For Hoisting DataBase
 ```
 ## Links : 
-
- ## - [Front End](http://udagram-frontend-udacity.s3-website-us-east-1.amazonaws.com)
- ## - [server](http://udagram-api-dev.eba-wepmqniy.us-east-1.elasticbeanstalk.com/)
- ## - [database host](database-1.c87xf7wiotlh.us-east-1.rds.amazonaws.com) 
-
-
-## Service Digram :
-- ![Hoisting Digram](/screenshots/digram.png)
-
-
-
-### Dependencies
-
-```
-- Node v14.0.0 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
-
-- npm 6.14.8 (LTS) or more recent.
-
-- AWS CLI v2, v1 
-
-- A RDS database running Postgres.
-
-- A S3 bucket for hosting.
-
 ```
 
-## images : 
+([frontend] (http://udagram-frontend-udacity.s3-website-us-east-1.amazonaws.com/home)).
+```
+
+
+
+
+
+
+
+## Images : 
 
 ![Elastic Beanstalk Screenshot](/screenshots/elasticbeanstack%20.png "Server").
-![Database Screenshot](/screenshots/database.png "Data Base").
-![s3 Screenshot](/screenshots/s3.png "Front end").
+
+
+After the initial setup, you will learn to interact with the services you started on aws and will deploy manually the application a first time to it. As you get more familiar with the services and interact with them through a CLI, you will gradually understand all the moving parts.
+
+You will then register for a free account on CircleCi and connect your Github account to it. Based on the manual steps used to deploy the app, you will write a config.yml file that will make the process reproducible in CircleCi. You will set up the process to be executed automatically based when code is pushed on the main Github branch.
+
+The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the Full-Stack application.
 
 
 
-## Pipline 
 
+## Installation
 
-### Installation
 Provision the necessary AWS services needed for running the application:
 
 1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
@@ -80,6 +69,4 @@ The e2e tests are using Protractor and Jasmine.
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
 
-## License
 
-[License](LICENSE.txt)

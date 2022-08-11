@@ -19,38 +19,40 @@ jobs:
       - run:
           name: Install Front-End Dependencies
           command: |
-            cd udagram/udagram-frontend && npm install -f
+            npm run frontend:install
       - run:
           name: Install API Dependencies
           command: |
-            cd udagram/udagram-api && npm install .
+            npm run api:install
       - run:
           name: Front-End Lint
           command: |
-            cd udagram/udagram-frontend && npm run lint
+            npm run frontend:lint
       
       - run:
           name: Front-End Build
           command: |
-            cd udagram/udagram-frontend && npm run build
+            npm run frontend:build
           
       - run:
           name: API Build
           command: |
-            cd udagram/udagram-api && npm run build
+            npm run api:build
       - run:
           name: FrontEnd Deploy
           command: |
-            cd udagram/udagram-frontend && npm run deploy
+            npm run frontend:deploy
       - run:
           name: API Deploy
           command: |
-            cd udagram/udagram-api && npm run deploy
+            npm run api:deploy
       - run:
-          name: Full Deploy
+          name: Deploy App
           command: |
-            npm run api:deploy && npm run frontend:deploy
+            npm run deploy
   
+      
+
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -61,11 +63,7 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
-      - run:
-          name: Deploy App
-          # TODO: Install, build, deploy in both apps
-          command: |
-            echo "# TODO: Install, build, deploy in both apps"
+      
             
 workflows:
   udagram:
