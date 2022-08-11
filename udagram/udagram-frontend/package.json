@@ -6,8 +6,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp -r package.json www/package.json",
-    "deploy": " npm run build && npm install && aws s3 cp --recursive  ./www s3://udagram-frontend-udacity/",
+    "build": "npm run build && ng build && cp -r package.json www/package.json",
+    "deploy": "npm install && aws s3 cp --recursive  ./www s3://udagram-frontend-udacity/",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
