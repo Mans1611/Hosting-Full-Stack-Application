@@ -1,6 +1,8 @@
 # Udagram :
 
 ## Pipeline Process : 
+
+
 ### Orbs : 
 which is the construction of the pipeline to configure it and in this pipeline we need to configure :
 - Node envirounment 
@@ -24,3 +26,9 @@ which is the construction of the pipeline to configure it and in this pipeline w
 
 - Deploy App : 
     Which it gather between deploying the front end and the backend, so it full deploy the full app.
+
+## Images :
+- Success Building PipeLine
+![pipeLine Sucess](/screenshots/piplelinesuc.png "pipeLine")
+- CircleCi
+![circleCi](/screenshots/circle.png)
