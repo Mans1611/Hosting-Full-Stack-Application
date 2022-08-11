@@ -28,19 +28,8 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
-      - run:
-          name: API Build
-          command: |
-            npm run api:build
-     
-      - run:
-          name: API Deploy
-          command: |
-            npm run api:deploy
-      - run:
-          name: Deploy App
-          command: |
-            npm run deploy
+      
+      
       
 
   deploy:
@@ -53,6 +42,15 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
+     
+      - run:
+          name: API Deploy
+          command: |
+            npm run api:deploy
       
             
 workflows:
