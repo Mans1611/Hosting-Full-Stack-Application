@@ -13,8 +13,7 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'  
-      - eb/setup       
+          node-version: '14.15'        
       - checkout
     # install front end dependencies 
       - run:
