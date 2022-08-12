@@ -13,10 +13,8 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'
-      - eb/setup
-      - aws-cli/setup
-      - checkout            
+          node-version: '14.15'         
+      - checkout
     # install front end dependencies 
       - run:
           name: Install Front-End Dependencies
