@@ -15,19 +15,27 @@ jobs:
       - node/install:
           node-version: '14.15'         
       - checkout
-    
+    # install front end dependencies 
       - run:
           name: Install Front-End Dependencies
           command: |
             npm run frontend:install
+      # install server dependencies 
       - run:
           name: Install API Dependencies
           command: |
             npm run api:install
+      # build the front end 
       - run:
           name: Front-End Build
           command: |
             npm run frontend:build
+    
+    # build the server end 
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
       
       
       
@@ -42,15 +50,39 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
+      
+      # setting the envirounment variables 
       - run:
-          name: API Build
+          name: Send Environment Variables To EB
           command: |
-            npm run api:build
-     
+            cd udagram/udagram-api && eb use udagram-api-dev
+            cd udagram/udagram-api && eb setenv AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+            cd udagram/udagram-api && eb setenv AWS_BUCKET=$AWS_BUCKET
+            cd udagram/udagram-api && eb setenv AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+            cd udagram/udagram-api && eb setenv AWS_REGION=$AWS_REGION
+            cd udagram/udagram-api && eb setenv AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+            cd udagram/udagram-api && eb setenv DB_PORT=$DB_PORT
+            cd udagram/udagram-api && eb setenv JWT_SECRET=$JWT_SECRET
+            cd udagram/udagram-api && eb setenv POSTGRES_DB=$POSTGRES_DB
+            cd udagram/udagram-api && eb setenv POSTGRES_HOST=$POSTGRES_HOST
+            cd udagram/udagram-api && eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            cd udagram/udagram-api && eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
+      # deploy the front end to s3 
       - run:
-          name: API Deploy
+          name: Deploy Front-End
+          command: |
+            npm run frontend:deploy
+     
+     # deploy the server to EB 
+      - run:
+          name: Deploy API
           command: |
             npm run api:deploy
+      # deploy the full app
+      - run:
+          name: Deploy App
+          command: |
+            npm run deploy
       
             
 workflows:
