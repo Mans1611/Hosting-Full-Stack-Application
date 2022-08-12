@@ -13,8 +13,10 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
-      - checkout
+          node-version: '14.15'
+      - eb/setup
+      - aws-cli/setup
+      - checkout            
     # install front end dependencies 
       - run:
           name: Install Front-End Dependencies
@@ -36,22 +38,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-      
-      
-      
-
-  deploy:
-    docker:
-      - image: "cimg/base:stable"
-      # more setup needed for aws, node, elastic beanstalk
-    steps:
-      - node/install:
-          node-version: '14.15' 
-      - eb/setup
-      - aws-cli/setup
-      - checkout
-      
-      # setting the envirounment variables 
+       # setting the envirounment variables 
       - run:
           name: Send Environment Variables To EB
           command: |
@@ -67,6 +54,21 @@ jobs:
             cd udagram/udagram-api && eb setenv POSTGRES_HOST=$POSTGRES_HOST
             cd udagram/udagram-api && eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD
             cd udagram/udagram-api && eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
+     
+      
+      
+
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+      # more setup needed for aws, node, elastic beanstalk
+    steps:
+      - node/install:
+          node-version: '14.15' 
+      - eb/setup
+      - aws-cli/setup
+      - checkout
+      
       # deploy the front end to s3 
       - run:
           name: Deploy Front-End
