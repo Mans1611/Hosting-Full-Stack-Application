@@ -69,16 +69,16 @@ jobs:
           name: Deploy App
           command: |
             npm run deploy
-      - run:
-      
       # setting the eb cli and python for intilazation
-      name: Installing Deployment Dependencies
-      working_directory: /
-      command: |
-        sudo apt-get -y -qq update
-        sudo apt-get install python3-pip python3-dev build-essential
-        sudo pip3 install awsebcli
-        sudo pip3 install awscli
+      - run:
+          name: Installing Deployment Dependencies
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python3-pip python3-dev build-essential
+            sudo pip3 install awsebcli
+            sudo pip3 install awscli
+          
       - run:
           name: Send Environment Variables To EB
           command: |
