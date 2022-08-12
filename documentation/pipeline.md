@@ -4,6 +4,7 @@
 
 ### Pipeline Diagram
  ![PipeLineDigram](/screenshots/pipelinedig.png)
+ ![Env_Variables](/screenshots/envvar.png)
 ### Orbs : 
 which is the construction of the pipeline to configure it and in this pipeline we need to configure :
 - Node envirounment 
